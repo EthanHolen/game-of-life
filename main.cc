@@ -1,7 +1,5 @@
 #include "Board.h"
 #include "Rule.h"
-#include "Board.h"
-#include "Rule.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,8 +15,6 @@ int main(int argc, char *argv[])
 
     string golly_input = "B3/S23";
     string filename = "";
-    vector<int> s_vals;
-    vector<int> b_vals;
     char live_char = 'O';
     char dead_char = '.';
     bool infinite = false;
@@ -55,25 +51,41 @@ int main(int argc, char *argv[])
         }
     }
 
+    cout << "ARGC:" << argc << " optind: " << optind << "\n";
+
     for (int i = optind; i < argc; i++)
     {
-        if (argc - optind != 1)
-        {
-            cerr << program_name << " ERROR: Incorrect Usage: too many filenames\n\t" << program_name << " <flags> filename\n";
-            return 1;
-        }
+        if (argc - optind > 1)
+            throw runtime_error("Fatal Error: too many filenames\n\tUsage: " + program_name + " <flags> filename\n");
+        if (argc - optind == 0)
+            throw runtime_error("Fatal Error: no filename provided\n\tUsage: " + program_name + " <flags> filename\n");
         filename = argv[i];
     }
 
     if (live_char == dead_char)
-        throw runtime_error("live character cannot be the same as dead character");
+        throw runtime_error("Fatal Error: live character cannot be the same as dead character");
 
     // DEBUGGING
-    // cout << "Golly Input: " << golly_input << "\n"
-    //      << "Live Char: " << live_char << "\n"
-    //      << "Dead Char: " << dead_char << "\n"
-    //      << "Infinite: " << infinite << "\n"
-    //      << "Filename: " << filename << "\n";
+    cout << "Golly Input: " << golly_input << "\n"
+         << "Live Char: " << live_char << "\n"
+         << "Dead Char: " << dead_char << "\n"
+         << "Infinite: " << infinite << "\n"
+         << "Filename: " << filename << "\n";
+
+    // Rule r();
+    Board b(filename);
+    system("sleep 3");
+    system("clear");
+    cout << b;
+    system("sleep 1");
+    system("clear");
+
+    while (true)
+    {
+        cout << ++b;
+        system("sleep 1");
+        system("clear");
+    }
 
     // call board and rule here
 

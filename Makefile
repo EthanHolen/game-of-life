@@ -2,7 +2,7 @@ CXX=g++-10
 FLAGS= -Wall
 FILES=Board.cc Rule.cc main.cc
 OBJFILES=Board.o Rule.o main.o
-TARGET=conways-gol
+TARGET=game-of-life
 
 all: $(TARGET)
 
