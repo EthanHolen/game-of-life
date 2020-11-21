@@ -12,6 +12,9 @@ Board::Board(string filename, Rule rule, char live_c, char dead_c)
     live = live_c;
     dead = dead_c;
 
+    cout << "live: " << live << "\n";
+    cout << "dead: " << dead << "\n";
+
     ifstream current_file(file);
     if (current_file.fail())
         throw runtime_error("The file " + file + " could not be found");
@@ -115,7 +118,7 @@ void Board::fill_board(istream &stream)
             if (c == live || c == dead)
                 temp.push_back(c);
             else
-                throw runtime_error("Error: reading " + file + " bad character: " + c);
+                throw runtime_error("Error reading the file " + file + " bad character found: " + c);
 
         current_board.push_back(temp);
         temp.clear();
