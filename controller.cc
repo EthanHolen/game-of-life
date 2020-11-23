@@ -12,7 +12,7 @@ using namespace std;
 
 string program_name;
 
-void display_bd(Board board)
+void display_bd(Board board, double t_between)
 {
     initscr();
 
@@ -37,7 +37,7 @@ void display_bd(Board board)
         addstr("Press any key to exit");
 
         refresh();
-        timeout(200);
+        timeout(t_between);
         // clear();
         // refresh();
         if (getch() != ERR)
@@ -56,11 +56,12 @@ int main(int argc, char *argv[])
     char live_char = 'O';
     char dead_char = '.';
     bool infinite = false;
+    double time_between = 200;
     int opt;
 
     // opterr = 0;
 
-    while ((opt = getopt(argc, argv, "g:l:d:i")) != -1)
+    while ((opt = getopt(argc, argv, "g:l:d:t:")) != -1)
     {
         switch (opt)
         {
@@ -72,6 +73,11 @@ int main(int argc, char *argv[])
             break;
         case 'd':
             dead_char = *optarg;
+            break;
+        case 't':
+            if (atof(optarg) <= 0)
+                throw runtime_error("-t error: time interval must be larger than 0");
+            time_between = 1000 * atof(optarg);
             break;
         case '?':
             if (optopt == 'd' || optopt == 'g' || optopt == 'l')
@@ -102,8 +108,9 @@ int main(int argc, char *argv[])
 
     // setup board
     Board my_board(filename, rul, live_char, dead_char);
+    cout << time_between << "\n";
 
-    display_bd(my_board);
+    display_bd(my_board, time_between);
 
     return 0;
 }

@@ -12,9 +12,6 @@ Board::Board(string filename, Rule rule, char live_c, char dead_c)
     live = live_c;
     dead = dead_c;
 
-    cout << "live: " << live << "\n";
-    cout << "dead: " << dead << "\n";
-
     ifstream current_file(file);
     if (current_file.fail())
         throw runtime_error("The file " + file + " could not be found");
