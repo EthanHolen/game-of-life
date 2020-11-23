@@ -37,7 +37,7 @@ void display_bd(Board board)
         addstr("Press any key to exit");
 
         refresh();
-        timeout(60);
+        timeout(200);
         // clear();
         // refresh();
         if (getch() != ERR)
@@ -96,28 +96,14 @@ int main(int argc, char *argv[])
     if (live_char == dead_char)
         throw runtime_error("Fatal Error: live character cannot be the same as dead character");
 
-    // DEBUGGING
-    // cout << "Golly Input: " << golly_input << "\n"
-    //      << "Live Char: " << live_char << "\n"
-    //      << "Dead Char: " << dead_char << "\n"
-    //      << "Infinite: " << infinite << "\n"
-    //      << "Filename: " << filename << "\n";
-
     // setup rule
     Rule rul;
-
     rul.golly(golly_input);
 
     // setup board
-
-    // Board b(filename, rl, live_char, dead_char);
     Board my_board(filename, rul, live_char, dead_char);
 
-    //ncurses setup
-
     display_bd(my_board);
-
-    // call board and rule here
 
     return 0;
 }
