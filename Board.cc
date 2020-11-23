@@ -2,6 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
+// #include <sstream>
 
 using namespace std;
 
@@ -12,11 +14,17 @@ Board::Board(string filename, Rule rule, char live_c, char dead_c)
     live = live_c;
     dead = dead_c;
 
-    ifstream current_file(file);
-    if (current_file.fail())
-        throw runtime_error("The file " + file + " could not be found");
-
-    fill_board(current_file);
+    if (filename == "")
+    {
+        fill_board(lines);
+    }
+    else
+    {
+        ifstream current_file(file);
+        if (current_file.fail())
+            throw runtime_error("The file " + file + " could not be found");
+        fill_board(current_file);
+    }
 }
 
 void Board::increment_generation()
@@ -110,6 +118,38 @@ void Board::fill_board(istream &stream)
 
     // break input into lines
     while (getline(stream, line))
+    {
+        for (char c : line)
+            if (c == live || c == dead)
+                temp.push_back(c);
+            else
+                throw runtime_error("Error reading the file " + file + " bad character found: " + c);
+
+        current_board.push_back(temp);
+        temp.clear();
+    }
+
+    if (current_board.size() < 2)
+        throw runtime_error("The grid in " + file + " must be at least 2x2");
+
+    size_t line_size = current_board[0].size();
+
+    if (line_size < 2)
+        throw runtime_error("The grid in " + file + " must be at least 2x2");
+
+    for (auto row : current_board)
+        if (row.size() != line_size)
+            throw runtime_error("Each line in " + file + " must be the same length");
+}
+void Board::fill_board(string line_string)
+{
+
+    stringstream stream(line_string);
+    vector<char> temp;
+    string line;
+
+    // break input into lines
+    while (getline(stream, line, '\n'))
     {
         for (char c : line)
             if (c == live || c == dead)

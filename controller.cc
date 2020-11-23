@@ -108,7 +108,6 @@ int main(int argc, char *argv[])
 
     // setup board
     Board my_board(filename, rul, live_char, dead_char);
-    cout << time_between << "\n";
 
     display_bd(my_board, time_between);
 
