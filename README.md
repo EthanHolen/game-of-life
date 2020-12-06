@@ -1,22 +1,3 @@
-<!--
-*** Thanks for checking out this README Template. If you have a suggestion that would
-*** make this better, please fork the game-of-life and create a pull request or simply open
-*** an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -30,13 +11,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/EthanHolen/game-of-life">
-    <img src="rdme-images/logo.png" alt="Logo" width="80" height="80">
+    <img src="rdme-images/logo.png" alt="Logo" width="80" height="100">
   </a>
 
-  <h2 align="center">YOUR_TITLE</h2>
+  <h2 align="center">Game of Life</h2>
 
   <p align="center">
-    YOUR_SHORT_DESCRIPTION
+    Graphical animation of Conways Game of life for homebrew.
     <br />
     <a href="https://github.com/EthanHolen/game-of-life"><strong>Explore the docs »</strong></a>
     <br />
@@ -61,64 +42,75 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
+  - [Flags](#flags)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`EthanHolen`, `game-of-life`, `HolenEthan`, `ethanholen@gmail.com`
-
+![Product Name Screen Shot][big-ggg-gif]
 
 ### Built With
 
-* []()
-* []()
-* []()
-
-
+* [C++](https://www.cplusplus.com)
+* [Ruby](https://www.ruby-lang.org/en/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple steps.
+To install this on your personal machine follow these steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
+* [Homebrew](https://brew.sh/)
+
+1. Go to the [Homebrew](https://brew.sh/) page.
+2. Follow the instructions there to install the latest version of homebrew on to your mac.
 
 ### Installation
- 
-1. Clone the game-of-life
+
+1. After installing homebrew paste this into your terminal
+
 ```sh
-git clone https://github.com/EthanHolen/game-of-life.git
-```
-2. Install NPM packages
-```sh
-npm install
+brew tap EthanHolen/taps
 ```
 
+1. Then install the software by pasting
+
+```sh
+brew install game-of-life
+```
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Once you've gone through the installation process above you can run the command `game-of-life` in your terminal and it should produce this default animation.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+![Default Usage][default-gif]
+
+You can exit out of that screen by pressing any key. If you would like to see a different animation you can specify any board as the second argument. Ive created a selection of boards that you can get by cloning my [gol-boards](https://github.com/EthanHolen/gol-boards) repo on github. To do that you can go to an empty folder in the terminal and run this command.
+
+```sh
+git clone https://github.com/EthanHolen/gol-boards
+```
+
+Each of these boards is made up of a series of live and dead characters. For example the default animation has live characters (O), and dead characters (.). These characters follow a few simple rules to create the complex pattern shown in the animation above.
+
+If you would like to know more about conways game of life you can read more on the [wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) page. To create your own board you can edit the blank template in [gol-boards](https://github.com/EthanHolen/gol-boards), and checkout the -g flag to specify your own rules for each generation.
+
+### Flags
+
+| Flag | Usage                                                                                                                                                      | Example                    |
+| :--- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------- |
+| `-t` | Specify the time between generations in seconds (default is 0.2 seconds)                                                                                   | `game-of-life -t 1`        |
+| `-g` | Sets a new born and survive rules for each generation. (Default Ex: "B3/S23" a cell is born if it has 3 neighbors and survives if it has 2 or 3 neighbors) | `game-of-life -g "B3/S23"` |
+| `-l` | Sets the live character for each generation (Default "O")                                                                                                  | `game-of-life -l "O"`      |
+| `-d` | Sets the live character for each generation (Default ".")                                                                                                  | `game-of-life -l "."`      |
 
 
 
@@ -147,8 +139,6 @@ Contributions are what make the open source community such an amazing place to b
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-
-
 <!-- CONTACT -->
 ## Contact
 
@@ -156,18 +146,10 @@ Your Name - [@HolenEthan](https://twitter.com/HolenEthan) - ethanholen@gmail.com
 
 Project Link: [https://github.com/EthanHolen/game-of-life](https://github.com/EthanHolen/game-of-life)
 
-
-
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* []()
-* []()
-* []()
-
-
-
-
+* [Conways Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -187,6 +169,7 @@ Project Link: [https://github.com/EthanHolen/game-of-life](https://github.com/Et
 [license-url]: https://github.com/EthanHolen/game-of-life/blob/master/LICENSE
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/ethan-holen-563856174
+[linkedin-url]: https://www.linkedin.com/in/💻-ethan-holen-563856174/
 
-[product-screenshot]: rdme-images/screenshot.png
+[big-ggg-gif]: rdme-images/big-ggg.gif
+[default-gif]: rdme-images/default.gif
