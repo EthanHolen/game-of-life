@@ -93,7 +93,7 @@ Once you've gone through the installation process above you can run the command 
 
 ![Default Usage][default-gif]
 
-You can exit out of that screen by pressing any key. If you would like to see a different animation you can specify any board as the second argument. Ive created a selection of boards that you can get by cloning my [gol-boards](https://github.com/EthanHolen/gol-boards) repo on github. To do that you can go to an empty folder in the terminal and run this command.
+You can exit out of that screen by pressing any key. If you would like to see a different animation you can specify any board as the second argument. I've created a selection of boards that you can get by cloning my [gol-boards](https://github.com/EthanHolen/gol-boards) repo on github. To do that you can go to an empty folder in the terminal and run this command.
 
 ```sh
 git clone https://github.com/EthanHolen/gol-boards
@@ -101,7 +101,7 @@ git clone https://github.com/EthanHolen/gol-boards
 
 Each of these boards is made up of a series of live and dead characters. For example the default animation has live characters (O), and dead characters (.). These characters follow a few simple rules to create the complex pattern shown in the animation above.
 
-If you would like to know more about conways game of life you can read more on the [wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) page. To create your own board you can edit the blank template in [gol-boards](https://github.com/EthanHolen/gol-boards), and checkout the -g flag to specify your own rules for each generation.
+If you would like to know more about Conways game of life you can read more on the [wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) page. To create your own board you can edit the blank template in [gol-boards](https://github.com/EthanHolen/gol-boards), and checkout the -g flag to specify your own rules for each generation.
 
 ### Flags
 
@@ -110,7 +110,7 @@ If you would like to know more about conways game of life you can read more on t
 | `-t` | Specify the time between generations in seconds (default is 0.2 seconds)                                                                                   | `game-of-life -t 1`        |
 | `-g` | Sets a new born and survive rules for each generation. (Default Ex: "B3/S23" a cell is born if it has 3 neighbors and survives if it has 2 or 3 neighbors) | `game-of-life -g "B3/S23"` |
 | `-l` | Sets the live character for each generation (Default "O")                                                                                                  | `game-of-life -l "O"`      |
-| `-d` | Sets the live character for each generation (Default ".")                                                                                                  | `game-of-life -l "."`      |
+| `-d` | Sets the dead character for each generation (Default ".")                                                                                                  | `game-of-life -d "."`      |
 
 
 
@@ -142,7 +142,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@HolenEthan](https://twitter.com/HolenEthan) - ethanholen@gmail.com
+Ethan Holen - [@HolenEthan](https://twitter.com/HolenEthan) - ethanholen@gmail.com
 
 Project Link: [https://github.com/EthanHolen/game-of-life](https://github.com/EthanHolen/game-of-life)
 
