@@ -57,7 +57,6 @@
 ### Built With
 
 * [C++](https://www.cplusplus.com)
-* [Ruby](https://www.ruby-lang.org/en/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
